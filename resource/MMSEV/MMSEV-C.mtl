@@ -1,0 +1,14 @@
+# Blender MTL File: 'MMSEV.blend'
+# Material Count: 1
+
+newmtl MMSEV
+Ns 252.941176
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MMSEV_Color_v2s.png
+map_Bump  MMSEV_Bump_v1s.png
