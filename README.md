@@ -16,4 +16,4 @@ TODO:   -- Fix GLUT_KEY_[DIRECTION] key view ZY plane translation
         -- Write Vertex/Fragment Shaders
         
         
-Unzip MMSEV-C into resource/ before running! :D. ~Barrett
+Unzip MMSEV-C into resource/ before running! :D ::Barrett
