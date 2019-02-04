@@ -14,6 +14,7 @@ TODO:   -- Fix GLUT_KEY_[DIRECTION] key view ZY plane translation
               -- Shaders 
         -- Add lighting to process normals
         -- Write Vertex/Fragment Shaders
-        
+
+See MMSEV-Blender for desired end state.
         
 Unzip MMSEV-C into resource/ before running! :D ::Barrett
