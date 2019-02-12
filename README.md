@@ -1,6 +1,6 @@
 # RenderEngine
 
-MMSEV Copyright NASA
+MMSEV Copyright NASA, OBJ written from NASA LaRC Advanced Concepts Lab (ACL)
 
 TODO:   -- Fix GLUT_KEY_[DIRECTION] key view ZY plane translation
         -- Startup 0 key ResetView()
