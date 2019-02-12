@@ -66,7 +66,7 @@ public:
     void ViewTranslate(glm::vec3);
     
     //data
-    void GenerateTextures(std::string);
+    void GenerateTextures(char*);
     void GenerateMesh(std::string);
     
     

@@ -47,13 +47,15 @@ int main(int argc, char** argv) {
     //declare an instance of the graphics class
     display = new RenderEngine(rd);
 
-    display->SetReadPageSize(false);
+    display->SetReadPageSize(true);
 
     display->SetDirectory("");
     display->AddVertexShader("resource/shader.vs");
     display->AddFragmentShader("resource/shader.fs");
     display->Compile();
 
+    Init_Mesh();
+    
     display->SetInitialView(glm::mat4(1.0f),
                             glm::vec3(0.0f, 5.0f, 10.0f),
                             glm::vec3(0.0f,  0.0f,  0.0f),
@@ -62,8 +64,6 @@ int main(int argc, char** argv) {
 
     display->Clear();
     display->SwapBuffers();
-
-    Init_Mesh();
 
     //call our mainloop
     display->MainLoop();

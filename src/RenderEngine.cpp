@@ -24,14 +24,14 @@ int a = 0;
 RenderEngine::RenderEngine(RenderGLData* rd)
 {
 
-    if (DebugInit) this->DebugMessage("Default Constructor ...\n", NULL);
+    if (DebugInit) this->DebugMessage("Default RenderEngine Constructor ...\n", NULL);
 
     //init with default window options from struct
     this->GL = new RenderGL(rd);
 
     this->Reader = new RenderReader(&Status);
 
-    if (DebugInit) this->DebugMessage("Default Constructor complete ...\n\n", NULL);
+    if (DebugInit) this->DebugMessage("Default RenderEngine Constructor complete ...\n\n", NULL);
 
 }
 
@@ -40,7 +40,7 @@ RenderEngine::RenderEngine(RenderGLData* rd)
 
 RenderEngine::~RenderEngine() {
 
-    if (DebugInit) this->DebugMessage("\nRenderEngine Deconstructor ...", NULL);
+    if (DebugInit) this->DebugMessage("\nDefault RenderEngine Deconstructor ...", NULL);
 
     //clean up objects
     this->DeleteObjects();
@@ -48,7 +48,7 @@ RenderEngine::~RenderEngine() {
     delete this->Reader;
     delete this->GL;
 
-    if (DebugInit) this->DebugMessage("\nRenderEngine Deconstructor complete ...\n\n", NULL);
+    if (DebugInit) this->DebugMessage("\nDefault RenderEngine Deconstructor complete ...\n\n", NULL);
 
 }
 
@@ -95,7 +95,7 @@ void RenderEngine::SetDirectory(const std::string directory)
 void RenderEngine::SetReadPageSize(bool ReadPage)
 {
 
-    this->Status.RD.ReadPageSize = ReadPage;
+    Reader->setReadPageSize(ReadPage, &Status);
 
 }
 
@@ -447,13 +447,15 @@ void RenderEngine::MainLoop(void)
 //data
 
 
-void RenderEngine::GenerateTextures(std::string Filename)
+void RenderEngine::GenerateTextures(char* Filename)
 {
-
-    if (Filename.find("./") != std::string::npos)
-        Filename = Filename.substr(2);
-
-    RenderGenerateData* mat = this->Reader->ReadMaterial(this->Status.Directory + Filename);
+    
+    std::string File = std::string(Filename);
+    if (File.find("./") != std::string::npos)
+        File = File.substr(2);
+    File.insert(0, this->Status.Directory);
+    
+    RenderGenerateData* mat = this->Reader->ReadMaterial((char*)File.c_str());
 
     for(std::vector<ImageTextureStruct>::iterator i = mat->Images->begin(); i != mat->Images->end(); i++)
     {

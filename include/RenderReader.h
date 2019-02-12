@@ -145,11 +145,15 @@ public:
     RenderReader(RenderStatus*);
 //    RenderReader(const RenderReader& orig);
     virtual ~RenderReader();
-    
-    //read file
-    RenderGenerateData* ReadMaterial(std::string Filename);
+
+    //setters
+    void setReadPageSize(bool, RenderStatus*);
+
+    //read file functions
+    RenderGenerateData* ReadMaterial(char* Filename);
     RenderObjectData* ReadWavefront(std::string Filename);
-    int ReadImage(ImageTextureStruct*, std::string);
+    int ReadImage(ImageTextureStruct*, char*);
+
     
 private:
     
@@ -228,6 +232,8 @@ private:
     ReadStruct rd;
     
     RenderObjectData* Object;
+    
+    RenderStatus* Status;
     
 };
 
